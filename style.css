@@ -5,12 +5,15 @@ table {
 
 td {
     width: 50px;
+    height: 50px;
     border: 1px solid #000;
     text-align: center;
     vertical-align: center;
     font-family: monospace;
     font-size: 40px;
+    position: relative;
 }
+
 section {
     text-align: center;
 }
@@ -22,4 +25,13 @@ section {
     list-style: none;
     align-items: center;
     justify-content: center;
+}
+
+.pixel-index {
+    font-size: 10px;
+    display: inline-block;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    color: #999;
 }
