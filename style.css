@@ -1,3 +1,8 @@
+html {
+    background-color: #403D39;
+    color: #EBE9E9;
+}
+
 table {
     border-collapse: collapse;
     border: 1px solid #000;
@@ -6,16 +11,28 @@ table {
 td {
     width: 50px;
     height: 50px;
+    color: #2A2B2E;
+    background-color: #EBE9E9;
     border: 1px solid #000;
     text-align: center;
     vertical-align: center;
     font-family: monospace;
-    font-size: 40px;
+    font-size: 20px;
     position: relative;
 }
 
 section {
     text-align: center;
+}
+
+a {
+    color: #B5BAD0;
+    text-decoration: none;
+}
+
+a:hover {
+    font-size: 101%;
+    text-decoration: underline;
 }
 
 .flex-container {
