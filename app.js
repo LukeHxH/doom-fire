@@ -2,8 +2,8 @@ import {colors, loadColors} from "./colors.js"
 
 const firePixelsArray = [];
 
-let tableWidth;
-let tableHeight;
+let tableWidth = 50;
+let tableHeight = 40;
 
 let fireColorsPalette = [];
 
@@ -13,7 +13,6 @@ let interval;
 
 function start() {
     fireColorsPalette = colors();
-    setWidthAndHeight(50, 40);
     createFireDataStructure();
     createFireSource();
     setUpListeners();
@@ -35,6 +34,12 @@ function setUpListeners() {
 function changeView() {
     showStructure = !showStructure;
     clearInterval(interval);
+
+    if (showStructure)
+        setWidthAndHeight(10, 10);
+    else
+        setWidthAndHeight(50, 40);
+
     start();
 }
 
