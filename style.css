@@ -8,8 +8,6 @@ table {
 }
 
 td {
-    width: 50px;
-    height: 50px;
     color: #2A2B2E;
     background-color: #EBE9E9;
     text-align: center;
@@ -17,6 +15,16 @@ td {
     font-family: monospace;
     font-size: 20px;
     position: relative;
+}
+
+.structure {
+    width: 50px;
+    height: 50px;
+}
+
+.pixel {
+    width: 10px;
+    height: 10px;
 }
 
 section {

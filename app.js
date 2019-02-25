@@ -1,20 +1,30 @@
 import {colors, loadColors} from "./colors.js"
 
 const firePixelsArray = [];
-const tableWidth = 10;
-const tableHeight = 10;
+
+let tableWidth;
+let tableHeight;
+
 let fireColorsPalette = [];
-let showStructure = true;
+
+let showStructure = false;
+
 let interval;
 
 function start() {
     fireColorsPalette = colors();
+    setWidthAndHeight(50, 40);
     createFireDataStructure();
     createFireSource();
     setUpListeners();
     render();
 
     interval = setInterval(calculateFirePropagation, 50);
+}
+
+function setWidthAndHeight(width, height) {
+    tableWidth = width;
+    tableHeight = height;
 }
 
 function setUpListeners() {
@@ -59,11 +69,11 @@ function updatePixelsFireIntensity(currPixelIndex) {
     const belowPixelIndex = currPixelIndex + tableWidth;
 
     if (belowPixelIndex < (tableWidth * tableHeight)) {
-        const decay = 1;
+        const decay = Math.floor(Math.random() * 3);
         const belowPixelFireIntenxity = firePixelsArray[belowPixelIndex];
         const newFireIntensity = Math.max(belowPixelFireIntenxity - decay, 0);
 
-        firePixelsArray[currPixelIndex] = newFireIntensity;
+        firePixelsArray[currPixelIndex - decay] = newFireIntensity;
     }
 }
 
@@ -81,12 +91,12 @@ function render() {
             const colorStringRGB = `${color.r}, ${color.g}, ${color.b}`;
 
             if (showStructure) {
-                tableHtml += `<td>`;
+                tableHtml += `<td class="structure">`;
                 tableHtml += `<div class="pixel-index">${pixelIndex}</div>`;
                 tableHtml += `<div class="fire-intensity">${fireIntensity}</div>`
                 tableHtml += '</td>';
             } else {
-                tableHtml += `<td style="background-color:rgb(${colorStringRGB})">`;
+                tableHtml += `<td class="pixel" style="background-color:rgb(${colorStringRGB})">`;
                 tableHtml += '</td>';
             }
 
